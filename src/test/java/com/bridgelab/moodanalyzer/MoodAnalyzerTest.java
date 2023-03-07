@@ -1,6 +1,7 @@
 package com.bridgelab.moodanalyzer;
 
 import com.bridgelab.MoodAnalyzer.MoodAnalyzer;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -23,5 +24,17 @@ public class MoodAnalyzerTest {
         String result = moodAnalyzer.analyseMood();
         assertEquals("HAPPY", result);
 
+    }
+
+    @Test
+    public void givenNull_shouldReturnHappy(){
+        MoodAnalyzer moodAnalyser = new MoodAnalyzer(null);
+        String result = null;
+        try {
+            result =  moodAnalyser.analyseMood();
+            Assert.assertEquals("HAPPY", result);
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 }
